@@ -2,23 +2,23 @@
 #
 # Stakpak Autopilot — One-shot bootstrap installer
 # ─────────────────────────────────────────────────
-# Hosted at: https://raw.githubusercontent.com/noureldin-azzab/stakpak-autopilot-install/main/autopilot-install.sh
+# Hosted at: https://stakpak.dev/autopilot-install.sh
 #
 # Designed to be invoked by the /autopilot-install skill after a target adapter
 # resolves a reachable SSH host. This script is intentionally cloud-agnostic:
-# keep AWS/GCP/Azure API calls in target adapters. It accepts all secrets via
-# env vars (preferred) or flags. Idempotent. ~90s end-to-end on a fresh host
-# (~30s if Docker + image are already present).
+# no AWS/GCP/Azure API calls belong here. It accepts all secrets via env vars
+# (preferred) or flags. Idempotent. ~90s end-to-end on a fresh host (~30s if
+# Docker + image are already present).
 #
-# Usage (env-var style, preferred — keeps secrets out of command args):
-#   curl -sSL https://raw.githubusercontent.com/noureldin-azzab/stakpak-autopilot-install/main/autopilot-install.sh | \
+# Usage (env-var style, preferred — no secrets visible in `ps`):
+#   curl -sSL https://stakpak.dev/autopilot-install.sh | \
 #     STAKPAK_API_KEY=... \
 #     SLACK_BOT_TOKEN=xoxb-... \
 #     SLACK_APP_TOKEN=xapp-... \
 #     sudo -E bash
 #
 # Usage (flag style):
-#   curl -sSL https://raw.githubusercontent.com/noureldin-azzab/stakpak-autopilot-install/main/autopilot-install.sh | sudo bash -s -- \
+#   curl -sSL https://stakpak.dev/autopilot-install.sh | sudo bash -s -- \
 #     --api-key STAKPAK_KEY \
 #     --slack-bot xoxb-... \
 #     --slack-app xapp-...
